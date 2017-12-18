@@ -15,6 +15,7 @@
 		611787581FE790390052788E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 611787571FE790390052788E /* main.m */; };
 		611787621FE790390052788E /* ButtonDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 611787611FE790390052788E /* ButtonDemoTests.m */; };
 		6117876D1FE790390052788E /* ButtonDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6117876C1FE790390052788E /* ButtonDemoUITests.m */; };
+		6117877C1FE7910E0052788E /* UIButton+DPTitlePostionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 6117877B1FE7910E0052788E /* UIButton+DPTitlePostionType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		611787681FE790390052788E /* ButtonDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6117876C1FE790390052788E /* ButtonDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonDemoUITests.m; sourceTree = "<group>"; };
 		6117876E1FE790390052788E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6117877A1FE7910E0052788E /* UIButton+DPTitlePostionType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+DPTitlePostionType.h"; sourceTree = "<group>"; };
+		6117877B1FE7910E0052788E /* UIButton+DPTitlePostionType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+DPTitlePostionType.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				611787491FE790390052788E /* AppDelegate.m */,
 				6117874B1FE790390052788E /* ViewController.h */,
 				6117874C1FE790390052788E /* ViewController.m */,
+				6117877A1FE7910E0052788E /* UIButton+DPTitlePostionType.h */,
+				6117877B1FE7910E0052788E /* UIButton+DPTitlePostionType.m */,
 				6117874E1FE790390052788E /* Main.storyboard */,
 				611787511FE790390052788E /* Assets.xcassets */,
 				611787531FE790390052788E /* LaunchScreen.storyboard */,
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6117874D1FE790390052788E /* ViewController.m in Sources */,
+				6117877C1FE7910E0052788E /* UIButton+DPTitlePostionType.m in Sources */,
 				611787581FE790390052788E /* main.m in Sources */,
 				6117874A1FE790390052788E /* AppDelegate.m in Sources */,
 			);
