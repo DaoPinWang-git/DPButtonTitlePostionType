@@ -23,8 +23,8 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
 
 + (void)load {
     
-    DPExchangeImplementations(self, @selector(imageRectForContentRect:), @selector(c_imageRectForContentRect:));
-    DPExchangeImplementations(self, @selector(titleRectForContentRect:), @selector(c_titleRectForContentRect:));
+//    DPExchangeImplementations(self, @selector(imageRectForContentRect:), @selector(c_imageRectForContentRect:));
+//    DPExchangeImplementations(self, @selector(titleRectForContentRect:), @selector(c_titleRectForContentRect:));
     DPExchangeImplementations(self, @selector(layoutSubviews), @selector(c_layoutSubviews));
     
 }
@@ -32,30 +32,30 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
 - (CGRect)c_imageRectForContentRect:(CGRect)contentRect {
     CGSize imageSize = [self c_imageSize];
     CGSize titleSize = [self c_titleSize];
-    
+
     if (CGSizeEqualToSize(imageSize, CGSizeZero)) {
         return [self c_imageRectForContentRect:contentRect];
     }
-    
-    switch (self.c_type) {
+    CGRect rect;
+    switch (self.postionType) {
         case DPButtonTitlePostionTypeBottom: {
-            return CGRectMake((CGRectGetWidth(contentRect) - imageSize.width) / 2,
-                              (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 - self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - imageSize.width) / 2,
+                              (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 - self.postionSpace / 2,
                               imageSize.width,
                               imageSize.height);
             
             break;
         }
         case DPButtonTitlePostionTypeTop: {
-            return CGRectMake((CGRectGetWidth(contentRect) - imageSize.width) / 2,
-                              titleSize.height + (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 + self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - imageSize.width) / 2,
+                              titleSize.height + (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 + self.postionSpace / 2,
                               imageSize.width,
                               imageSize.height);
             
             break;
         }
         case DPButtonTitlePostionTypeLeft: {
-            return CGRectMake(titleSize.width + (CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2  + self.c_space / 2,
+            rect = CGRectMake(titleSize.width + (CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2  + self.postionSpace / 2,
                               (CGRectGetHeight(contentRect) - imageSize.height) / 2,
                               imageSize.width,
                               imageSize.height);
@@ -64,7 +64,7 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
         }
         case DPButtonTitlePostionTypeRight: {
             
-            return CGRectMake((CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 - self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 - self.postionSpace / 2,
                               (CGRectGetHeight(contentRect) - imageSize.height) / 2,
                               imageSize.width,
                               imageSize.height);
@@ -72,39 +72,40 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
             break;
         }
         default:{
-            return [self c_imageRectForContentRect:contentRect];
+            rect = [self c_imageRectForContentRect:contentRect];
         }
             break;
     }
+    return rect;
 }
 
 - (CGRect)c_titleRectForContentRect:(CGRect)contentRect {
     CGSize imageSize = [self c_imageSize];
     CGSize titleSize = [self c_titleSize];
-    
     if (CGSizeEqualToSize(titleSize, CGSizeZero)) {
         return [self c_titleRectForContentRect:contentRect];
     }
-    
-    switch (self.c_type) {
+    CGRect rect;
+
+    switch (self.postionType) {
         case DPButtonTitlePostionTypeBottom: {
-            return CGRectMake((CGRectGetWidth(contentRect) - titleSize.width) / 2,
-                              imageSize.height + (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 + self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - titleSize.width) / 2,
+                              imageSize.height + (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 + self.postionSpace / 2,
                               titleSize.width,
                               titleSize.height);
             
             break;
         }
         case DPButtonTitlePostionTypeTop: {
-            return CGRectMake((CGRectGetWidth(contentRect) - titleSize.width) / 2,
-                              (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 - self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - titleSize.width) / 2,
+                              (CGRectGetHeight(contentRect) - titleSize.height - imageSize.height) / 2 - self.postionSpace / 2,
                               titleSize.width,
                               titleSize.height);
             
             break;
         }
         case DPButtonTitlePostionTypeLeft: {
-            return CGRectMake((CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 - self.c_space / 2,
+            rect = CGRectMake((CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 - self.postionSpace / 2,
                               (CGRectGetHeight(contentRect) - titleSize.height) / 2,
                               titleSize.width,
                               titleSize.height);
@@ -113,7 +114,7 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
         }
         case DPButtonTitlePostionTypeRight: {
             
-            return CGRectMake(imageSize.width + (CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 + self.c_space / 2,
+            rect = CGRectMake(imageSize.width + (CGRectGetWidth(contentRect) - imageSize.width - titleSize.width) / 2 + self.postionSpace / 2,
                               (CGRectGetHeight(contentRect) - titleSize.height) / 2,
                               titleSize.width,
                               titleSize.height);
@@ -121,27 +122,86 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
             break;
         }
         default:{
-            return [self c_titleRectForContentRect:contentRect];
+            rect = [self c_titleRectForContentRect:contentRect];
         }
             break;
     }
+    return rect;
 }
 
 - (void)c_layoutSubviews{
-    CGSize size = self.imageView.image.size;
-    objc_setAssociatedObject(self, @selector(c_imageSize), @(size), OBJC_ASSOCIATION_RETAIN);
-    objc_setAssociatedObject(self, @selector(c_titleSize), @([self.titleLabel sizeThatFits:CGSizeMake(self.frame.size.width, self.titleLabel.font.lineHeight)]), OBJC_ASSOCIATION_RETAIN);
-    
+
+    // 直接调用self.imageView.image.size会触发-(CGRect)duimageRectForContentRect:(CGRect)contentRect
+    // 所以需要一个中间过程绑定值
+    // titleSize 同理
+    UIImage *image = self.imageView.image;
+    CGSize imageSize = image.size;
+    CGSize titleSize = [self.titleLabel sizeThatFits:CGSizeMake(self.frame.size.width, self.titleLabel.font.lineHeight)];
+//    objc_setAssociatedObject(self, @selector(c_imageSize), @(imageSize), OBJC_ASSOCIATION_RETAIN);
+//    objc_setAssociatedObject(self, @selector(c_titleSize), @(titleSize), OBJC_ASSOCIATION_RETAIN);
+//
+//    if (!CGSizeEqualToSize(titleSize, CGSizeZero)) {
+//        NSLog(@"layoutSubviews:titleSize=%@&%@",NSStringFromCGSize(titleSize),self);
+//    }
+
+
+     switch (self.postionType) {
+        case DPButtonTitlePostionTypeBottom: {
+            self.titleEdgeInsets = UIEdgeInsetsMake(imageSize.height + self.postionSpace ,
+                                                    - imageSize.width,
+                                                    0.0,
+                                                    0.0);
+            self.imageEdgeInsets = UIEdgeInsetsMake(0.0,
+                                                    titleSize.width / 2,
+                                                    titleSize.height + self.postionSpace,
+                                                    - titleSize.width / 2);
+
+            break;
+        }
+        case DPButtonTitlePostionTypeTop: {
+            self.titleEdgeInsets = UIEdgeInsetsMake(0.0,
+                                                    - imageSize.width,
+                                                    imageSize.height + self.postionSpace ,
+                                                    0.0);
+            self.imageEdgeInsets = UIEdgeInsetsMake(titleSize.height + self.postionSpace,
+                                                    titleSize.width / 2,
+                                                    0.0,
+                                                    - titleSize.width / 2);
+
+
+
+            break;
+        }
+        case DPButtonTitlePostionTypeLeft: {
+
+            self.titleEdgeInsets = UIEdgeInsetsMake(.0,
+                                                    - imageSize.width - self.postionSpace,
+                                                    .0,
+                                                    imageSize.width);
+            self.imageEdgeInsets = UIEdgeInsetsMake(.0,
+                                                    titleSize.width,
+                                                    .0,
+                                                    - titleSize.width - self.postionSpace);
+
+            break;
+        }
+        case DPButtonTitlePostionTypeRight: {
+            self.titleEdgeInsets = UIEdgeInsetsMake(0, self.postionSpace, 0, 0);
+            self.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, self.postionSpace);
+
+
+            break;
+        }
+        default:{
+        }
+            break;
+    }
+
+
+
     [self c_layoutSubviews];
 }
 
-- (DPButtonTitlePostionType)c_type{
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-
-- (CGFloat)c_space{
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
 
 - (CGSize)c_titleSize{
     return [objc_getAssociatedObject(self, _cmd) CGSizeValue];
@@ -151,14 +211,30 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
     return [objc_getAssociatedObject(self, _cmd) CGSizeValue];
 }
 
-- (void)setTitlePositionWithType:(DPButtonTitlePostionType)type space:(CGFloat)space
-{
-    
-    objc_setAssociatedObject(self, @selector(c_type), @(type), OBJC_ASSOCIATION_RETAIN);
-    objc_setAssociatedObject(self, @selector(c_space), @(space), OBJC_ASSOCIATION_RETAIN);
-    
+
+- (DPButtonTitlePostionType)postionType{
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
 
+- (CGFloat)postionSpace{
+    return [objc_getAssociatedObject(self, _cmd) floatValue];
+}
+
+
+- (void)setPostionType:(DPButtonTitlePostionType)postionType{
+    objc_setAssociatedObject(self, @selector(postionType), @(postionType), OBJC_ASSOCIATION_RETAIN);
+    [self setNeedsLayout];
+}
+
+- (void)setPostionSpace:(CGFloat)postionSpace{
+    objc_setAssociatedObject(self, @selector(postionSpace), @(postionSpace), OBJC_ASSOCIATION_RETAIN);
+    [self setNeedsLayout];
+}
+
+- (void)setTitlePositionWithType:(DPButtonTitlePostionType)type space:(CGFloat)space{
+    self.postionType = type;
+    self.postionSpace = space;
+}
 
 
 @end
