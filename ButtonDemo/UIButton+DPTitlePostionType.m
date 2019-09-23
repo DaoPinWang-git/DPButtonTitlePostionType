@@ -131,10 +131,10 @@ void DPExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
 
 - (void)c_layoutSubviews{
 
-    // 直接调用self.imageView.image.size会触发-(CGRect)duimageRectForContentRect:(CGRect)contentRect
+    // 直接调用self.imageView.image.size会触发一些方法-(CGRect)duimageRectForContentRect:(CGRect)contentRect
     // 所以需要一个中间过程绑定值
     // titleSize 同理
-    UIImage *image = self.imageView.image;
+    UIImage *image = currentImage;
     CGSize imageSize = image.size;
     CGSize titleSize = [self.titleLabel sizeThatFits:CGSizeMake(self.frame.size.width, self.titleLabel.font.lineHeight)];
 //    objc_setAssociatedObject(self, @selector(c_imageSize), @(imageSize), OBJC_ASSOCIATION_RETAIN);
