@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gI-W2-Noi">
-                                <rect key="frame" x="97" y="188" width="44" height="100"/>
+                                <rect key="frame" x="89" y="188" width="60" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="xfA-O4-u68"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="xfA-O4-u68"/>
                                     <constraint firstAttribute="height" constant="100" id="y97-Km-c0M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -30,10 +28,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5m-rq-1Ba">
-                                <rect key="frame" x="97" y="380" width="44" height="100"/>
+                                <rect key="frame" x="89" y="380" width="60" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="3UY-gv-sQH"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="nOP-0D-fdS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="nOP-0D-fdS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Left" image="star">
@@ -41,10 +39,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3z-79-JY1">
-                                <rect key="frame" x="231" y="380" width="50" height="100"/>
+                                <rect key="frame" x="226" y="380" width="60" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Hi4-Py-Qj9"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="Rsj-cp-4RB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Rsj-cp-4RB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Right" image="star">
@@ -55,7 +53,7 @@
                                 <rect key="frame" x="225" y="188" width="62" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="fHU-1W-dvt"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="yjk-7b-bxf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="yjk-7b-bxf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Bottom" image="star">
@@ -85,6 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="115"/>
         </scene>
     </scenes>
     <resources>
